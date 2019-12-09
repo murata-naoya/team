@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :endusers do
+    get 'endusers/index'
+    get 'endusers/show'
+    get 'endusers/edit'
+  end
   devise_for :endusers, controllers: {
       sessions: 'endusers/endusers/sessions',
       registrations: 'endusers/endusers/registrations',
