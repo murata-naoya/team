@@ -5,26 +5,26 @@
 
   <div class="field">
     <%= f.label "性(漢字)" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.text_field :last_name_characters, autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label "名(漢字)" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.text_field :first_name_characters, autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label "性(カナ)" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.text_field :last_name_kana, autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label "名(カナ)" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.text_field :first_name_kana, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label メールアドレス %><br />
+    <%= f.label "メールアドレス" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
@@ -43,12 +43,12 @@
 
   <div class="field">
     <%= f.label "郵便番号" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.text_field :postal_code, autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label "住所" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.text_field :address, autofocus: true %>
   </div>
 
   <div class="field">
