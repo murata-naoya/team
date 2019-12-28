@@ -1,2 +1,4 @@
-class Users::ProductsController < ApplicationController
+class Endusers::ProductsController < ApplicationController
+    def index
+    end
 end

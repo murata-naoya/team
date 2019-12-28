@@ -4,8 +4,17 @@ Rails.application.routes.draw do
       registrations: 'endusers/endusers/registrations',
       passwords: 'endusers/endusers/passwords'
   }
-  resources :endusers
-  resources :products
+
+  namespace :endusers do
+    get '', :to => "endusers#index"
+    get '/:id', :to => "endusers#show"
+    get '/:id/edit', :to => "endusers#edit"
+    patch '/:id', :to => "endusers#update"
+  end
+
+  scope module: 'endusers' do
+    resources :products, only: [:index, :show]
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

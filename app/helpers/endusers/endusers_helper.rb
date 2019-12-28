@@ -1,0 +1,2 @@
+module Endusers::EndusersHelper
+end
