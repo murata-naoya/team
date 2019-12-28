@@ -5,11 +5,15 @@ Rails.application.routes.draw do
       passwords: 'endusers/endusers/passwords'
   }
 
-  namespace :endusers do
-    get '', :to => "endusers#index"
-    get '/:id', :to => "endusers#show"
-    get '/:id/edit', :to => "endusers#edit"
-    patch '/:id', :to => "endusers#update"
+  # namespace :endusers do
+  #   get '', :to => "endusers#index"
+  #   get '/:id', :to => "endusers#show"
+  #   get '/:id/edit', :to => "endusers#edit"
+  #   patch '/:id', :to => "endusers#update"
+  # end
+
+  scope module: 'endusers' do
+    resources :endusers, only: [:show, :edit, :update, :destroy]
   end
 
   scope module: 'endusers' do
@@ -25,6 +29,7 @@ Rails.application.routes.draw do
   }
   namespace :admin do
     resources :products
+    resources :endusers, only: [:index]
   end
   
 end
