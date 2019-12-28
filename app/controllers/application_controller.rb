@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
   end
   
   def after_sign_in_path_for(resource)
-    
+    if enduser_signed_in?
+      enduser_path(current_user)
+    elsif admin_signed_in?
+      admin_products_path
+    else
+    end
   end
 end
