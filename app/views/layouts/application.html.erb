@@ -16,7 +16,7 @@
         <li><%= link_to "商品登録", "#" %></li>
         <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
       <% elsif enduser_signed_in? %>
-        <li><%= link_to "マイページ", endusers_path(current_enduser) %></li>
+        <li><%= link_to "マイページ", enduser_path(current_enduser) %></li>
         <li><%= link_to "カート一覧", "#" %></li>
         <li><%= link_to "ログアウト", destroy_enduser_session_path,method: :delete  %></li>
       <% else %>

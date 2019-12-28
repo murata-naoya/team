@@ -11,3 +11,31 @@ Admin.create!(
     password: "aaaaaa",
     password_confirmation: "aaaaaa"
 )
+
+Enduser.create!(
+    email: "aaa@gmail.com",
+    password: 'aaaaaa',
+    password_confirmation: "aaaaaa",
+    last_name_characters: "佐藤",
+    first_name_characters: "智子",
+    last_name_kana: "サトウ",
+    first_name_kana: "トモコ",
+    postal_code: "000-0000",
+    address: "東京都 豊島区",
+    phone_number: "000-000-0000"
+    # created_at: "2019-12-10 03:32:19",
+    )
+
+    Enduser.create!(
+        email: "bbb@gmail.com",
+        password: 'aaaaaa',
+        password_confirmation: "aaaaaa",
+        last_name_characters: "bbb",
+        first_name_characters: "bbb",
+        last_name_kana: "bbb",
+        first_name_kana: "bbb",
+        postal_code: "000-0000",
+        address: "東京都 千代田区",
+        phone_number: "000-000-0000"
+        # created_at: "2019-12-10 03:32:19",
+        )

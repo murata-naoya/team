@@ -1,0 +1,26 @@
+<h1>会員一覧</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>顧客iD</th>
+            <th>氏名</th>
+            <th>ステータス</th>
+        </tr>
+    </thead>
+
+    <% @users.each do |user| %>
+    <tbody>
+        <tr>
+            <th><%= user.id %></th>
+            <th><%= user.last_name_characters %><%= user.first_name_characters %></th>
+            <th><% if user.deleted_at.nil?  %>
+                    <div>会員</div>
+                <% else %>
+                    <div>退会</div>
+                <% end %>
+            </th>
+        </tr>
+    </tbody>
+<% end %>
+</table>

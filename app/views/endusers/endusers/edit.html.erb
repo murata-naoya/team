@@ -1,2 +1,22 @@
-<h1>Endusers::Endusers#edit</h1>
-<p>Find me in app/views/endusers/endusers/edit.html.erb</p>
+<%= form_for(@user) do |f| %>
+    <h4>プロフィール画像</h4>
+    <%= f.attachment_field :profile_image %>
+    <h4>性（漢字）</h4>
+    <%= f.text_field :last_name_characters %>
+    <h4>名（漢字）</h4>
+    <%= f.text_field :first_name_characters %>
+    <h4>性（カナ）</h4>
+    <%= f.text_field :last_name_kana %>
+    <h4>名（カナ）</h4>
+    <%= f.text_field :first_name_kana %>
+    <h4>メールアドレス</h4>
+    <%= f.email_field :email %>
+    <h4>郵便番号</h4>
+    <%= f.text_field :postal_code %>
+    <h4>住所</h4>
+    <%= f.text_field :address %>
+    <h4>電話番号</h4>
+    <%= f.text_field :phone_number %><br>
+    <%= f.submit "プロフィールを更新する" %>
+<% end %>
+

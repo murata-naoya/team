@@ -1,1 +1,87 @@
 <h1>マイページ</h1>
+
+<%= link_to "マイページ編集", edit_enduser_path(@user) %>
+
+<div class="profile">
+    <div class="label1">
+        <p>プロフィール画像</p>
+    </div>
+
+    <div class="profile_pic">
+        <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class: "profile_pic" %>
+    </div>
+</div>
+
+<div class="profile">
+  <div class="label1">
+    <p>性(漢字)</p>
+  </div>
+  <div class="info">
+    <p><%= @user.last_name_characters %></p>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="label1">
+    <p>名(漢字)</p>
+  </div>
+  <div class="info">
+    <p><%= @user.first_name_characters %></p>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="label1">
+    <p>性(カナ)</p>
+  </div>
+  <div class="info">
+    <p><%= @user.last_name_kana %></p>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="label1">
+    <p>名(カナ)</p>
+  </div>
+  <div class="info">
+    <p><%= @user.first_name_kana %></p>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="label1">
+    <p>メールアドレス</p>
+  </div>
+  <div class="info">
+    <p><%= @user.email %></p>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="label1">
+    <p>郵便番号</p>
+  </div>
+  <div class="info">
+    <p><%= @user.postal_code %></p>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="label1">
+    <p>住所</p>
+  </div>
+  <div class="info">
+    <p><%= @user.address %></p>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="label1">
+    <p>電話番号</p>
+  </div>
+  <div class="info">
+    <p><%= @user.phone_number %></p>
+  </div>
+</div>
+
+<%= link_to "退会する", enduser_path(@user), method: :delete, data: {confirm: '本当に退会しますか？' } %>
