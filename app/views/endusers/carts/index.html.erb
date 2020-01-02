@@ -1,0 +1,42 @@
+<h1>カート詳細</h1>
+
+<% @total = 0 %>
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>商品名</th>
+            <th>単価（税抜）</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @carts.each do |cart| %>
+            <tr>
+                <th><%= attachment_image_tag cart.product, :image, :fill, 50, 50, fallback: "no_image.jpg" %></th>
+                <th><%= cart.product.name %></th>
+                <th><%= cart.product.price %></th>
+                <th>
+                    <%= form_for [cart.product,cart] do |f| %>
+                        <%= f.select :count, [*1..100] %>
+                        <%= f.submit "数量を更新する" %>
+                    <% end %>
+                </th>
+                <th>
+                    <% @total += cart.product.price * cart.count %>
+                </th>
+                <th>
+                    <%= link_to "商品の詳細をみる", product_path(cart.product) %>
+                    <%= link_to "カートから外す", product_cart_path(product_id: cart.product.id, id: cart.id), method: :delete %>
+                </th>
+            </tr>
+        <% end %>
+    </tbody>
+    <tfoot>
+        <tr><td>合計金額</td><td><%= @total %><td></tr>
+    </tfoot>
+</table> 
+

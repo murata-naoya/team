@@ -6,6 +6,8 @@ class Enduser < ApplicationRecord
   
   attachment :profile_image
   acts_as_paranoid
+
+  has_many :carts, dependent: :destroy
   
   # def full_name(user)
   #   user.last_name_characters + user.first_name_characters
