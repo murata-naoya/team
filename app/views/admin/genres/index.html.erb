@@ -1,0 +1,27 @@
+<h1>ジャンル一覧</h1>
+
+<%= link_to "商品を登録する", new_admin_product_path %>
+
+<table>
+    <thead>
+        <tr>
+            <th>ジャル一覧</th>
+            <th>ジャンル名</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <% @genres.each do |genre| %>
+        <tr> 
+            <th><%= genre.id %></th>
+            <th><%= genre.name %></th>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<%= form_for ([:admin, @genre]) do |f| %>
+    <%= f.label :ジャンル名 %>
+    <%= f.text_field :name %>
+    <%= f.submit "ジャンル名を登録する" %>
+<% end %>

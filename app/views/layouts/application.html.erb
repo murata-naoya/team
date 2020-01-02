@@ -13,7 +13,7 @@
     <ul>
       <% if admin_signed_in? %>
         <li><%= link_to "受注一覧", "#" %></li>
-        <li><%= link_to "商品登録", "#" %></li>
+        <li><%= link_to "商品登録", new_admin_product_path %></li>
         <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
       <% elsif enduser_signed_in? %>
         <li><%= link_to "マイページ", enduser_path(current_enduser) %></li>

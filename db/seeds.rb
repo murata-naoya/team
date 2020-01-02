@@ -39,3 +39,18 @@ Enduser.create!(
         phone_number: "000-000-0000"
         # created_at: "2019-12-10 03:32:19",
         )
+    
+    Product.create!(
+        genre_id: 1,
+        name: "ケーキ",
+        image_id: "1",
+        price: 100,
+        description: "おいしいよ",
+        sell_status: 0
+        )
+    
+    Genre.create!(
+        name: "洋菓子",
+        created_at: "2019-06-09 05:58:56",
+        updated_at: "2019-06-09 05:58:57"
+        )

@@ -72,3 +72,9 @@ gem "refile-mini_magick"
 gem 'paranoia'
 
 gem 'pry-byebug'
+
+gem 'enum_help'
+
+gem 'kaminari','~> 1.1.1'
+
+gem 'ransack'

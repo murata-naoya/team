@@ -1,0 +1,25 @@
+<h1>商品詳細</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>商品画像</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>商品説明</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <th><%= attachment_image_tag @product, :image, :fill, 50, 50, fallback: "no_image.jpg" %></th>
+            <th><%= @product.name %></th>
+            <th><%= @product.price %></th>
+            <th><%= @product.description %></th>
+            <th><%= @product.genre.name %></th>
+            <th><%= @product.sell_status %></th>
+        </tr>
+    </tbody>
+</table>
