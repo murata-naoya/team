@@ -1,0 +1,6 @@
+ja:
+  enums:
+    product:
+      sell_status:
+        sales: "販売中"
+        stoopped: "販売停止中"

@@ -1,0 +1,17 @@
+<h1>商品登録</h1>
+
+<%= form_for([:admin, @product]) do |f| %>
+    <h4>商品画像</h4>
+    <%= f.attachment_field :image %>
+    <h4>商品名</h4>
+    <%= f.text_field :name %>
+    <h4>商品説明</h4>
+    <%= f.text_area :description %>
+    <h4>商品価格（税抜）</h4>
+    <%= f.number_field :price %>
+    <h4>商品ステータス</h4>
+    <%= f.select :sell_status, Product.sell_statuses_i18n.keys.map { |k| [Product.sell_statuses_i18n[k], k]} %>
+    <h4>ジャンル</h4>
+    <%= f.collection_select(:genre_id, Genre.all, :id, :name, { :prompt => "選択してください" , :multiple => true }) %>
+    <%= f.submit "商品を登録する" %>
+<% end %>

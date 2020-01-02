@@ -1,1 +1,25 @@
-<div>index</div>
+<h1>商品一覧画面</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>商品画像</th>
+            <th>税抜価格</th>
+            <th>商品名</th>
+            <th>ジャンル</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <% @products.each do |product| %>
+        <tr>
+            <th><%= attachment_image_tag product, :image, :fill, 50, 50, fallback: "no_image.jpg" %></th>
+            <th><%= product.price %></th>
+            <th><%= product.name %></th>
+            <th><%= product.genre.name %></th>
+            <th><%= link_to "詳細をみる", product_path(product) %></th>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
