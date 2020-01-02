@@ -9,6 +9,7 @@
             <th>商品説明</th>
             <th>ジャンル</th>
             <th>ステータス</th>
+            <th></th>
         </tr>
     </thead>
 
@@ -20,6 +21,24 @@
             <th><%= @product.description %></th>
             <th><%= @product.genre.name %></th>
             <th><%= @product.sell_status %></th>
+            <th><% if enduser_signed_in? %>
+                    <% if @cart.id.blank? %>
+                        <%= form_for [@product, @cart] do |f| %>
+                            <%= f.select :count, [*1..100] %>
+                            <%#= f.hidden_field :product_id %>
+                            <%= f.submit "カートに入れる" %>
+                        <% end %>
+                    <% else %>
+                        <%= form_for [@product, @cart], url: cart_change_path(@cart), action: "patch" do |f| %>
+                            <%= f.select :count, [*1..100] %>
+                            <%#= f.hidden_field :product_id %>
+                            <%= f.submit "カートに入れる" %>
+                        <% end %>
+                    <% end %>
+                <% else %>
+                    <%= link_to "カートに入れる", new_enduser_session_path %>
+                <% end %>
+            </th>
         </tr>
     </tbody>
 </table>

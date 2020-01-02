@@ -8,20 +8,15 @@ Rails.application.routes.draw do
       passwords: 'endusers/endusers/passwords'
   }
 
-  # namespace :endusers do
-  #   get '', :to => "endusers#index"
-  #   get '/:id', :to => "endusers#show"
-  #   get '/:id/edit', :to => "endusers#edit"
-  #   patch '/:id', :to => "endusers#update"
-  # end
-
   scope module: 'endusers' do
     resources :endusers, only: [:show, :edit, :update, :destroy]
+    resources :products, only: [:index, :show] do
+      resources :carts, only: [:create, :update, :destroy]
+    end
+    resources :carts, only: [:index]
+    patch "/carts/:id/change" => "carts#change", as:"cart_change"
   end
 
-  scope module: 'endusers' do
-    resources :products, only: [:index, :show]
-  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
