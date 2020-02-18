@@ -29,7 +29,7 @@ class Endusers::CartsController < ApplicationController
       redirect_to carts_path
     else
       @carts = current_enduser.carts
-      render "index"
+      render 'index'
     end
   end
 
