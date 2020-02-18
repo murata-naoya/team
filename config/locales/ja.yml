@@ -4,3 +4,7 @@ ja:
       sell_status:
         sales: "販売中"
         stoopped: "販売停止中"
+    order:
+      option:
+        cash: "銀行振込"
+        card: "クレジットカード"

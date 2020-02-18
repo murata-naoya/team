@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :genres, only: [:index, :create, :edit, :update, :destroy]
-  end
   devise_for :endusers, controllers: {
       sessions: 'endusers/endusers/sessions',
       registrations: 'endusers/endusers/registrations',
@@ -15,6 +12,9 @@ Rails.application.routes.draw do
     end
     resources :carts, only: [:index]
     patch "/carts/:id/change" => "carts#change", as:"cart_change"
+    resources :orders, only: [:index, :show, :create, :new]
+    post "orders/confirm" => "orders#confirm"
+    get "thanks" => "orders#thanks"
   end
 
 
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :products
     resources :endusers, only: [:index]
+    resources :genres, only: [:index, :create, :edit, :update, :destroy]
   end
   
 end

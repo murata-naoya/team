@@ -8,6 +8,8 @@ class Enduser < ApplicationRecord
   acts_as_paranoid
 
   has_many :carts, dependent: :destroy
+  has_many :orders, dependent: :destroy
+  has_many :destinations, dependent: :destroy
   
   # def full_name(user)
   #   user.last_name_characters + user.first_name_characters
